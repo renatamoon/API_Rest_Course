@@ -5,12 +5,17 @@ from ..serializers import vaga_serializer
 from rest_framework.response import Response
 from rest_framework import status
 from ..entidades import vagas
+from rest_framework.pagination import LimitOffsetPagination
+
 
 class VagaList(APIView):
     def get(self, request, format=None):
+        paginacao = LimitOffsetPagination()
         vagas = vagas_service.listar_vagas()
-        Serializer = vaga_serializer.VagaSerializer(vagas, many=True)
-        return Response(Serializer.data, status=status.HTTP_200_OK)
+        resultado = paginacao.paginate_queryset(vagas, request)        
+        serializer = vaga_serializer.VagaSerializer(resultado, many=True)
+        return paginacao.get_paginated_response(serializer.data)
+        #return Response(Serializer.data, status=status.HTTP_200_OK)
 
     
     def post(self, request, format=None):
@@ -67,3 +72,8 @@ class VagaDetalhes(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     
+    def delete(self, request, id, format=None):
+        #buscar a vaga para remover a partir do id
+        vaga = vagas_service.listar_vaga_id(id)
+        vagas_service.remover_vaga(vaga)
+        return Response(status=status.HTTP_204_NO_CONTENT)
