@@ -10,4 +10,4 @@ class VagaSerializer(serializers.ModelSerializer):
         #estão validos - no caso somente vamos validar o unico campo que é
         #o nome da Tecnologia - validacao de dados que entrarão no banco de dados
         fields = ('titulo','descricao', 'salario', 'local', 'quantidade',
-        'contato', 'tipo_contratacao', 'tecnologias', )
+        'contato', 'tipo_contratacao', 'tecnologias')

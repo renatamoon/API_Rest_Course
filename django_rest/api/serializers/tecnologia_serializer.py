@@ -9,4 +9,4 @@ class TecnologiaSerializer(serializers.ModelSerializer):
         model = Tecnologia #model de base para verificação se os dados
         #estão validos - no caso somente vamos validar o unico campo que é
         #o nome da Tecnologia - validacao de dados que entrarão no banco de dados
-        fields = ('nome', )
+        fields = ('id', 'nome')

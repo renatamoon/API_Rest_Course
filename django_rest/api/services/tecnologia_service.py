@@ -21,5 +21,7 @@ def listar_tecnologia_id(id):
 def editar_tecnologia(tecnologia_antiga, tecnologia_nova):
     tecnologia_antiga.nome = tecnologia_nova.nome
     tecnologia_antiga.save(force_update=True) #forcando o update dessa tecnologia
-    
 
+
+def remover_tecnologia(tecnologia):
+    tecnologia.delete()
