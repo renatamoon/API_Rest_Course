@@ -8,5 +8,6 @@ urlpatterns = [
     path('tecnologias/', tecnologia_views.TecnologiaList.as_view(), name='tecnologia-list'),
     path('tecnologias/<int:id>', tecnologia_views.TecnologiaDetalhes.as_view(), name='tecnologia-detalhes'),
     path('vagas/', vagas_views.VagaList.as_view(), name='vaga-list'),
+    path('vagas/<int:id>', vagas_views.VagaDetalhes.as_view(), name='vaga-detalhes'),
 ]
 
