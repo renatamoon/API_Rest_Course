@@ -78,27 +78,27 @@ WSGI_APPLICATION = 'django_rest.wsgi.application'
 
 #-------homepc
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '0.0.0.0',
-        'PORT': '3306',
-        'NAME': 'api_rest',
-        'USER': 'root',
-        'PASSWORD': 'my-secret-pw',        
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'HOST': 'localhost',
+#         'HOST': '0.0.0.0',
 #         'PORT': '3306',
 #         'NAME': 'api_rest',
 #         'USER': 'root',
-#         'PASSWORD': '@Yamato123'    
+#         'PASSWORD': 'my-secret-pw',        
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'NAME': 'api_rest',
+        'USER': 'root',
+        'PASSWORD': '@Yamato123'    
+    }
+}
 
 
 # Password validation
@@ -146,7 +146,6 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 2,   
-
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
