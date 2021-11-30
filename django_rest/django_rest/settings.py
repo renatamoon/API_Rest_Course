@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
@@ -76,27 +77,28 @@ WSGI_APPLICATION = 'django_rest.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 #-------homepc
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'HOST': '0.0.0.0',
-#         'PORT': '3306',
-#         'NAME': 'desafio_final',
-#         'USER': 'root',
-#         'PASSWORD': 'my-secret-pw',        
-#     }
-# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'HOST': '0.0.0.0',
         'PORT': '3306',
         'NAME': 'api_rest',
         'USER': 'root',
-        'PASSWORD': '@Yamato123'    
+        'PASSWORD': 'my-secret-pw',        
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         'NAME': 'api_rest',
+#         'USER': 'root',
+#         'PASSWORD': '@Yamato123'    
+#     }
+# }
 
 
 # Password validation
@@ -143,7 +145,21 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 2
-}
+    'PAGE_SIZE': 2,   
+
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+} #por padrao nossa classe de autenticacao será essa - geraremos os tokens de acesso às credenciais
+
+OAUTH2_PROVIDER = {
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 60,
+    #tempo de expiração da Sessao
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore' 
+} #usando como backend essa configuracao
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
