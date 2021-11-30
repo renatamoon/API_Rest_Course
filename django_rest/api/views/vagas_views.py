@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from ..services import vagas_service
@@ -9,6 +10,9 @@ from rest_framework.pagination import LimitOffsetPagination
 
 
 class VagaList(APIView):
+    permission_classes = [IsAuthenticated]
+    #com essa permissao, nao podereremos listar nem cadastrar, porém poderemos
+    #liustar uma vaga por id.
     def get(self, request, format=None):
         paginacao = LimitOffsetPagination()
         vagas = vagas_service.listar_vagas()

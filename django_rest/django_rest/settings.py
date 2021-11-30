@@ -149,8 +149,13 @@ REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-    )
-} #por padrao nossa classe de autenticacao será essa - geraremos os tokens de acesso às credenciais
+    ),
+ #por padrao nossa classe de autenticacao será essa - geraremos os tokens de acesso às credenciais
+    # 'DEFAULT_PERMISSION_CLASSES':(
+    #     'rest_framework.permissions.IsAuthenticated',
+    #) #todas as funcionalidades serão privadas. Ela será aplicada em todas as
+    # a aplicacao. Verifica sempre se o Usuario está autenticado.
+}
 
 OAUTH2_PROVIDER = {
     'ACCESS_TOKEN_EXPIRE_SECONDS': 60,
