@@ -102,15 +102,14 @@ Dados da API REST:<br>
 ![image](https://user-images.githubusercontent.com/87100340/144066523-8cae94b9-e548-4194-bf29-b53c35d7e49c.png)
 <br>
 <br>
--Temos que criar um super usuario atraves do comando ```python manage.py createsuperuser```, entrar na área de Admin do Django, criar uma aplicação onde será gerado
-  um ```clientid``` e ```clientsecret```:
+-Temos que criar um super usuario atraves do comando ```python manage.py createsuperuser```, entrar na área de Admin do Django, criar uma aplicação onde será gerado um ```clientid``` e ```clientsecret```:
 <br>
 <br>   
 ![image](https://user-images.githubusercontent.com/87100340/144073646-177457c9-5fcd-46ee-86ac-a0d1b12ad9e5.png) 
 <br>
 <br> 
--Com isso, passaremos as informações dentro do POSTMAN para acesso da API.
- <br>
+-Com isso, passaremos as informações dentro do POSTMAN para acesso da API:
+<br>
 <br>
 ![image](https://user-images.githubusercontent.com/87100340/144066767-17d64c37-6964-47ae-8f60-3a0223978383.png)
 <br>
